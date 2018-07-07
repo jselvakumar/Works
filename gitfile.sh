@@ -6,7 +6,7 @@ for BR in $(git branch -a | sed -e's/*//')
 do
 count=$(git ls-tree -r $BR --name-only | grep ST | wc -l)
 #echo $count
-if [ $count == 0 ]
+if [ $count != 0 ]
 then
 echo "$ST is present in $BR"
 else
