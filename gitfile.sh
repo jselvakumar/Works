@@ -1,4 +1,5 @@
 #!/bin/bash
+# to find the duplicate files in branches of repositories
 
 for ST in $(git diff --name-only --cached | xargs basename)
 do	
