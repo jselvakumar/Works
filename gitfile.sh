@@ -1,10 +1,10 @@
 #!/bin/bash
 
-for ST in $(git diff --name-only --cached)
+for ST in $(git diff --name-only --cached | xargs basename)
 do	
 for BR in $(git branch -a | sed -e's/*//')
 do
-count=$(git ls-tree -r $BR --name-only | grep ST | wc -l)
+count=$(git ls-tree -r $BR --name-only | grep $ST | wc -l)
 #echo $count
 if [ $count != 0 ]
 then
