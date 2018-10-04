@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
-num = 17
+num = 12
 
 if num % 2 == 0:
-   return num 
-   else
-   return num
+   print "num is even"
+else:
+   print "num is odd"
