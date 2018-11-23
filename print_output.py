@@ -9,16 +9,15 @@ import sys
 import json
 import pprint
 from jira import JIRA
-jira = JIRA(basic_auth=('e5350756', 'Time2!@#123'), server='http://gfr4repsatlap01.kordoba.de:8090')
+jira = JIRA(basic_auth=('selvakuj', 'xxxxxxxx'), server='http://xxxxx.xx:8090')
 git_path="C:\\Program Files\\Git\\bin"
-sys.path.append ("\\\\kunx0014\\migration\\python\\lib\\3.4\\site-packages")
+sys.path.append ("\\\\older\\migration\\python\\lib\\3.4\\site-packages")
 os.environ["PATH"] += os.pathsep + git_path
 
-#dest_path = "C:\\Users\\selvaj\\Assyst\\"
-file = os.listdir("\\\\kunx0014\\compot\\Assyst_Auftraege\\XREF_S100\\5_prod\\s100-24\\")
+file = os.listdir("\\\\older\\folder2\\")
 struct = {}
 for csv in file:
-    f_path ="\\\\kunx0014\\compot\\Assyst_Auftraege\\XREF_S100\\5_prod\\s100-24\\" + csv
+    f_path ="\\\\older\\folder2\\" + csv
     csvopen = open(f_path, "r")
     #filename = f_path.split('/')
     #print (filename)
@@ -48,9 +47,9 @@ pprint.pprint(struct)
 for key in struct.keys():
     summary = "XREF ticket -" + key
     issue_dict = {
-    'project': {'key': 'KDBPOC'},
+    'project': {'key': 'JIRA_PAD'},
     'summary': summary,
-    'parent' : {'key' : 'KDBPOC-967'},
+    'parent' : {'key' : 'JIRA_PAD-967'},
     'issuetype': {'name': 'Sub-task'},
     'priority' : {'id' : '3'},
     #'customfield_10178' : {'value' : 'BANKCONTROL'},
@@ -58,7 +57,7 @@ for key in struct.keys():
     'customfield_10198' : {'value' : 'S100'}
     }
     new_issue = jira.create_issue(fields=issue_dict)
-    jira.assign_issue(new_issue, 'e5350756')
+    jira.assign_issue(new_issue, 'username')
     print(new_issue.key)
        
         
