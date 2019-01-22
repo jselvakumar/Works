@@ -52,9 +52,9 @@ for key in struct.keys():
     'parent' : {'key' : 'JIRA_PAD-967'},
     'issuetype': {'name': 'Sub-task'},
     'priority' : {'id' : '3'},
-    #'customfield_10178' : {'value' : 'BANKCONTROL'},
-    #'customfield_10176' : {'value' : 'ING KGS'},
-    'customfield_10198' : {'value' : 'S100'}
+    #'customfield_10178' : {'value' : 'BCCCNKSK'},
+    #'customfield_10176' : {'value' : 'INNN'},
+    'customfield_10198' : {'value' : '23456789'}
     }
     new_issue = jira.create_issue(fields=issue_dict)
     jira.assign_issue(new_issue, 'username')
